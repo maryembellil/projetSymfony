@@ -1,0 +1,36 @@
+{% extends 'base.html.twig'%}
+
+{% block body %} 
+<div class='container'>
+    <div class='row'>
+        <h3 class='mt-5 mb-5'>Add user</h3>
+        <div class='col-md-6 offset-md-3'>
+            {{form_start(form)}}
+                <div class="form-group">
+                       
+                     {{ form_label(form.name) }}   
+                    {{form_widget(form.name,{'attr':{'class':'form-control'}})}}    
+                    {{ form_errors(form.name) }} 
+                    {% do form.name.setRendered %}
+                    {% if not form.name.vars.valid %} 
+                    {% for error in form.name.vars.errors %}
+                        <span class="help-block">{{error.maxmessage}} </span>
+                        {% endfor %} 
+                        {% endif %}  
+                </div>
+                <div class="form-group">
+                     {{ form_label(form.lastname) }}        
+                    {{form_widget(form.lastname,{'attr':{'class':'form-control'}})}}        
+                </div>
+                <div class="form-group">
+                     {{ form_label(form.adresse) }}        
+                    {{form_widget(form.adresse,{'attr':{'class':'form-control'}})}}        
+                </div>
+                 <div class="form-group">
+                     <button class='btn btn-info mt-2 text-white'>Submit</button>       
+                </div>
+            {{form_end(form)}}
+        </div>
+    </div>
+</div>
+{% endblock  %}

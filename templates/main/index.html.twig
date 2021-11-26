@@ -1,0 +1,42 @@
+{% extends 'base.html.twig'%}
+
+{% block body %} 
+{% for message in app.flashes('notice') %}
+            <div class='alert alert-success mt-4 mb-b'>
+                {{message}}
+            </div>
+{% endfor %}
+
+<div class="add">
+  <button class='btn btn-success' ><a id="modif" href="{{path('create')}}" >Create</a></button>
+</div>
+
+<div class="container" id="test" >
+<table class="table table-striped">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">lastname</th>
+      <th scope="col">adresse</th>
+      <th scope="col">Actions</th>
+   </tr>
+  </thead>
+  <tbody>
+  {% for data in list %}
+    <tr>
+      <th scope="row">{{data.id}}</th>
+      <td>{{data.name}}</td>
+      <td>{{data.lastname}}</td>
+      <td>{{data.adresse}}</td>
+      <td>
+        <a class='btn btn-warning' href="{{path('update', {'id' : data.id }) }}">Update</a> 
+        <a class='btn btn-danger' href="{{path('delete', {'id' : data.id }) }}">Delete</a> 
+
+       </td> 
+    </tr>   
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock  %}

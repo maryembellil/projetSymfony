@@ -1,0 +1,14 @@
+.add {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin-top: 8rem;
+    width: 40rem;
+    margin-left: 55rem;
+    margin-bottom: 5px;
+}
+
+#modif {
+    text-decoration: none;
+    color: white;
+}
